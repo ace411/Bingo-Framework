@@ -1,0 +1,13 @@
+@font-face {
+	font-family:Ubuntu;
+	src: url("Ubuntu-Bold.ttf");
+}
+
+@font-face {
+	font-family:Ubuntu;
+	src: url("Ubuntu-Bold.ttf") format('ttf');
+}
+
+body {
+	font-family:Ubuntu;
+}

@@ -1,0 +1,9 @@
+{
+	"require-dev": {
+		"mustache/mustache": "*"
+	},
+	"config": {
+		"prepend-autoloader": false,
+		"vendor-dir": "packages"		
+	}
+}
