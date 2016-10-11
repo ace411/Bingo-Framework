@@ -21,7 +21,7 @@ class Config
 	 * 
 	 */
 
-	const DB_USER = 'bots';
+	const DB_USER = '';
 
 	/**
 	 *
@@ -41,7 +41,7 @@ class Config
 	 * 
 	 */
 
-	const DB_PASS = 'QW6XALwnpP6ZwNvG';
+	const DB_PASS = '';
 
 	/**
 	 *
@@ -51,7 +51,7 @@ class Config
 	 * 
 	 */
 
-	const DB_NAME = 'dproname_hiddentreasures';
+	const DB_NAME = '';
 		
 	/**
 	 *
