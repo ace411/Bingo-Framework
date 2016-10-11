@@ -1,0 +1,15 @@
+#Bingo Framework
+A simple MVC framework for PHP enthusiasts. Bingo, just like any other framework,
+simplifies the process of creating robust web applications.
+
+##Requirements
+
+- PHP 5.4 or higher
+
+- MySQL 
+
+##Documentation
+To fully acquaint yourself with the framework, check the Bingo wiki.
+
+##Dealing with problems
+Endeavor to create an issue on GitHub when the need arises or send an email to lochbm@gmail.com
