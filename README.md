@@ -9,7 +9,7 @@ simplifies the process of creating robust web applications.
 - MySQL 
 
 ##Documentation
-To fully acquaint yourself with the framework, check the Bingo wiki.
+To fully acquaint yourself with the framework, check the Bingo [wiki](https://github.com/ace411/Bingo-Framework/wiki).
 
 ##Dealing with problems
 Endeavor to create an issue on GitHub when the need arises or send an email to lochbm@gmail.com
