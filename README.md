@@ -6,3 +6,5 @@ MVC framework for PHP
 - AutoCompile LESS
 
 - Create Cache for LESS files
+
+- Create Cache for Mustache templates
