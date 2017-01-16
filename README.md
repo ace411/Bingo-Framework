@@ -4,15 +4,15 @@ A simple MVC framework for PHP enthusiasts. Bingo, just like any other framework
  
 ## Requirements
  
--- PHP 5.4 or higher
+- PHP 5.4 or higher
  
--- MySQL 
+- MySQL 
 
 ## Documentation
  
--To fully acquaint yourself with the framework, check the Bingo [wiki](https://github.com/ace411/Bingo-Framework/wiki).
+To fully acquaint yourself with the framework, check the Bingo [wiki](https://github.com/ace411/Bingo-Framework/wiki).
  
 ## Dealing with problems
  
--Endeavor to create an issue on GitHub when the need arises or send an email to lochbm@gmail.com
+Endeavor to create an issue on GitHub when the need arises or send an email to lochbm@gmail.com
  
