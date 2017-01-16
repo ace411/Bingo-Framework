@@ -1,6 +1,6 @@
 #Bingo Framework
- -A simple MVC framework for PHP enthusiasts. Bingo, just like any other framework,
- -simplifies the process of creating robust web applications.
+ 
+ A simple MVC framework for PHP enthusiasts. Bingo, just like any other framework, simplifies the process of creating robust web applications.
  
  ##Requirements
  
