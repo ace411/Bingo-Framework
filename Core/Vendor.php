@@ -30,12 +30,7 @@ class Vendor
 	{
 		return str_replace(DIRECTORY_SEPARATOR, '/', dirname(__DIR__)) . '/' . $file;
 	}
-
-	protected function jsonEncode($data)
-	{
-		return json_encode($data, JSON_UNESCAPED_SLASHES);
-	}
-
+    
 	/**
 	 *
 	 * Require the autoload file in the Composer dependency directory
@@ -46,7 +41,7 @@ class Vendor
 	{
 		$autoloader = $this->generatePath(Config::DEP_ROOT . '/autoload.php');
 
-		if(is_readable($autoloader) || is_file($autoloader)){
+		if (is_readable($autoloader) || is_file($autoloader)) {
 			require $autoloader;
 		}
 	}

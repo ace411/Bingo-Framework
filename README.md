@@ -1,10 +1,12 @@
 # Bingo-Framework
 MVC framework for PHP
 
-##Test branch
+##Proposed improvements for Version 1.0.1
 
-- AutoCompile LESS
-
-- Create Cache for LESS files
+- More accurate path generation
 
 - Create Cache for Mustache templates
+
+- Modify the composer.json file
+
+- Display configuration options

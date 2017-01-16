@@ -48,9 +48,9 @@ class Views
 
 		$file = $this->getPath() . $view;
 
-		if(is_readable($file)){
+		if (is_readable($file)) {
 			require $file;
-		}else{
+		} else {
 			throw new \Exception("{$file} not found");
 		}
 	}
@@ -68,9 +68,9 @@ class Views
 	public static function getPath($dir = null)
 	{
 		$view = new Views();
-		if($dir === null){
+		if ($dir === null) {
 			$path = $view->createPath('App/Views/');
-		}else {
+		} else {
 			$path = $view->createPath($dir);			
 		}
 		return $path;
@@ -87,54 +87,90 @@ class Views
 	 *
 	 */
 
-	public static function returnURL($http, $path)
+	public function setPath($scheme)
+    {
+        if (!is_bool($scheme)) {
+            throw new \Exception("{$http}: value does not exist");
+        }
+        
+        $hostPath = $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'];        
+        
+        if ($scheme === true) {
+            return 'http://'. $hostPath;
+        } else {
+            return 'https://' . $hostPath;
+        }
+    }
+
+	/**
+	 *
+	 * get the URL's for the client-side dependencies
+	 *
+	 * @param bool $scheme
+	 * @param string $path
+	 *
+	 * @return string $url
+	 *
+	 */
+
+	public static function returnURL($scheme, $path)
 	{
-		if(!is_bool($http)){
-			echo "{$http} value does not exist";
-		}else {
-			if($http === true){
-				$http_val = htmlspecialchars('http://');
-			}else {
-				$http_val = htmlspecialchars('https://');
-			}
-			switch($path){
-				case 'font':
-					$url = str_replace(substr(self::getPath(), 0, 15), $http_val . $_SERVER['SERVER_NAME'], self::getPath('public/fonts/'));
-					break;
-
-				case 'style':
-					$url = str_replace(substr(self::getPath(), 0, 15), $http_val . $_SERVER['SERVER_NAME'], self::getPath('public/styles/'));
-					break;
-
-				case 'img':
-					$url = str_replace(substr(self::getPath(), 0, 15), $http_val . $_SERVER['SERVER_NAME'], self::getPath('public/img/'));
-					break;
-
-				case 'js':
-					$url = 	str_replace(substr(self::getPath(), 0, 15), $http_val . $_SERVER['SERVER_NAME'], self::getPath('public/js/'));	
-					break;
-			}		
-			return $url;	
-		}		
+        $views = new Views;
+        switch ($path) {
+            case 'font':
+                $url = $views->setPath($scheme) . '/fonts/';
+                break;
+                
+            case 'style':
+                $url = $views->setPath($scheme) . '/styles/';
+                break;
+                
+            case 'img':
+                $url = $views->setPath($scheme) . '/img/';
+                break;
+                
+            case 'js':
+                $url = $views->setPath($scheme) . '/js/';
+                break;
+                
+            default:
+                throw new \Exception("{$path} does not exist");
+                break;
+        }
+        return $url;
 	}
 
 	/**
 	 *
-	 * Use default view rendering dependencies (.js, .css, .php)
+	 * Use default view rendering dependencies(.js, .css, .php) for Mustache templates
 	 *
 	 * @return array  Default client-side dependencies
 	 *
 	 */
-
-	public static function renderDefaults()
+    
+    public function renderMustacheDefaults($scheme, $title = null)
+    {
+        return [
+            'title' => !is_null($title) ? $title : 'Bingo Framework',
+            'stylesheet' => $this->setPath($scheme) . '/styles/main.css',
+            'font' => $this->setPath($scheme) . '/fonts/Ubuntu.css'
+        ];
+    }
+    
+    /**
+	 *
+	 * Use default view rendering dependencies(.js, .css, .php) for Raw PHP templates
+	 *
+	 * @return array  Default client-side dependencies
+	 *
+	 */
+    
+    public function renderRawDefaults($scheme, $title = null)
 	{
-		return [
-			'header' => self::sanitize('template/header.php'),
-			'footer' => self::sanitize('template/footer.php'),
-			'stylesheet' => self::sanitize('http://localhost/template/style.css'),
-			'js' => self::sanitize('http://localhost/template/main.js'),
-			'font' => self::sanitize('http://localhost/template/font.css')
-		];
+		return array_merge([
+            'header' => $this->createPath('App/Views/Raw/base_header.php'),
+            'footer' => $this->createPath('App/Views/Raw/base_footer.php')
+        ], $this->renderMustacheDefaults($scheme, $title));        
 	}
 
 	/**
@@ -152,11 +188,11 @@ class Views
 
 	public static function sanitize($input)
 	{
-		switch($input){
+		switch ($input) {
 			case is_string($input):
-				if(preg_match('/(?:http|https)?(?:\:\/\/)?(?:www.)?(([A-Za-z0-9-]+\.)*[A-Za-z0-9-]+\.[A-Za-z]+)(?:\/.*)?/im', $input)){
+				if (preg_match('/(?:http|https)?(?:\:\/\/)?(?:www.)?(([A-Za-z0-9-]+\.)*[A-Za-z0-9-]+\.[A-Za-z]+)(?:\/.*)?/im', $input)) {
 					$data = filter_var($input, FILTER_SANITIZE_URL);
-				}else {
+				} else {
 					$data = htmlspecialchars(filter_var($input, FILTER_SANITIZE_STRING));
 				}			
 				break;
@@ -172,10 +208,10 @@ class Views
 	public function filter($text)
 	{
 		$sanitized = [];
-		if(!is_array($text)){
+		if (!is_array($text)) {
 			throw new Exception("Please provide an array of strings");
-		}else {
-			for($x=0; $x<=count($text)-1; $x++){
+		} else {
+			for ($x=0; $x<=count($text)-1; $x++) {
 				$sanitized[] = [self::sanitize($text[$x])];
 			}
 		}
@@ -200,7 +236,8 @@ class Views
 		$options = ['extension' => '.html'];
 		$mustache = new \Mustache_Engine([
 			'loader' => new \Mustache_Loader_FilesystemLoader(dirname(__DIR__) . '/App/Views/Mustache', $options),
-			'escape' => function ($value){
+			'cache' => $this->createPath(Config::CACHE_DIR . '/mustache'),
+            'escape' => function ($value){
 				return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 			}
 		]);
