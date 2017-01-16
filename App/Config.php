@@ -21,7 +21,7 @@ class Config
 	 * 
 	 */
 
-	const DB_USER = '';
+	const DB_USER = 'root';
 
 	/**
 	 *
@@ -74,4 +74,28 @@ class Config
 	 */
 
 	const DEP_ROOT = 'packages';
+    
+    /**
+	 *
+	 * Cache directory for
+	 *
+	 * @var string CACHE_DIR
+	 *
+	 */
+    
+    const CACHE_DIR = 'cache';
+    
+    /**
+     *
+     * Method to return all the Configuration options
+     *
+     * @return $reflectionClass->getConstants() 
+     *
+     */
+    
+    public function getConstants()
+    {
+        $reflectionClass = new ReflectionClass(__CLASS__);
+        return $reflectionClass->getConstants();
+    }
 }

@@ -29,7 +29,7 @@ class Error
 
 	public static function errorHandler($level, $message, $file, $line)
 	{
-		if(error_reporting() !== 0){
+		if (error_reporting() !== 0) {
 			throw new \ErrorException($message, 0, $level, $file, $line);
 		}
 	}
@@ -45,7 +45,7 @@ class Error
 
 	public static function exceptionHandler($exception)
 	{
-		if(Config::SHOW_ERRORS === true){
+		if (Config::SHOW_ERRORS === true) {
 			echo "
 				<h1>Fatal Error</h1>
 				<p>Uncaught exception: ".get_class($exception)."</p>
@@ -54,7 +54,7 @@ class Error
 				<p>Thrown in: {$exception->getFile()}</p>
 				<p>Error line: {$exception->getLine()}</p>
 			";
-		}else {
+		} else {
 			$log = str_replace('\\', '/', dirname(__DIR__)) . '/logs/' . time() . '_log.txt';
 			ini_set('error_log', $log);
 			$message = "-------------------------------";

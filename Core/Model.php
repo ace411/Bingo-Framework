@@ -118,12 +118,10 @@ class Model
 
 	public static function connectTo()
 	{
-		if(self::$instance == null){
-
+		if (self::$instance == null) {
 			self::$instance = new Model();
 			self::$instance->establishConnection();
 		}
-
 		return self::$instance;
 	}
 
@@ -335,9 +333,9 @@ class Model
 	 */
 
 	public function printJson($data){
-		if(!is_array($data)){
+		if (!is_array($data)) {
 			throw new \Exception("{$data} is not an array");
-		}else {
+		} else {
 			return json_encode($data);
 		}
 	}

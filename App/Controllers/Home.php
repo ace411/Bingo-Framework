@@ -18,36 +18,25 @@ class Home extends \Core\Controller
 {
 	public function indexAction()
 	{
-		$view = new Views();
-		$view->render('Home/index.php', [
-			'title' => 'Bingo Framework',
-			'short_desc' => 'You might enjoy...',
-			'header' => Views::getPath() . 'Raw/base_header.php',
-			'footer' => Views::getPath() . 'Raw/base_footer.php',
-			'stylesheet' => Views::returnURL(true, 'style') . 'main.css',
-			'font' => $view->returnURL(true, 'font') . 'Ubuntu.css',
-			'js' => $view->returnURL(true, 'js') . 'controller.js',
-			'plans' => ['Reusable templates', 'MVC', 'Design simplicity'],
-			'links' => [
-				['http://localhost:8080/home/index', 'Home'], 
-				['http://localhost:8080/home/about', 'About'], 
+		$views = new Views();
+        $options = array_merge([
+            'short_desc' => 'You might also enjoy...',
+            'plans' => ['Reusable templates', 'MVC', 'Design Simplicity'],
+            'links' => [
+                ['http://localhost:' . $_SERVER['SERVER_PORT'] . '/home/index', 'Home'], 
+				['http://localhost:' . $_SERVER['SERVER_PORT'] . '/home/about', 'About'], 
 				['https://github.com/ace411/Bingo-Framework', 'Documentation'], 
 				['https://github.com/ace411/Bingo-Framework', 'GitHub']
-			]
-		]);
+            ]
+        ], $views->renderRawDefaults(true));
+		$views->render('Home/index.php', $options);
 	}
 
 	public function aboutAction()
 	{
-		$view = new Views;
-		$view->render('Home/about.php', [
-			'title' => 'Bingo Framework',
-			'header' => Views::getPath() . 'Raw/base_header.php',
-			'footer' => Views::getPath() . 'Raw/base_footer.php',
-			'stylesheet' => Views::returnURL(true, 'style') . 'main.css',
-			'font' => $view->returnURL(true, 'font') . 'Ubuntu.css',
-			'js' => $view->returnURL(true, 'js') . 'controller.js',
-			'title_one' => 'Bingo is easy to understand',
+		$views = new Views;
+        $options = array_merge([
+            'title_one' => 'Bingo is easy to understand',
 			'bloc_one' => "
 				Bingo is built in accordance with MVC standards. If you decide to
 				use the framework, you will interact with Bingo's controllers, views,
@@ -66,11 +55,12 @@ class Home extends \Core\Controller
 				motivated by the need to solve problems.
 			",
 			'links' => [
-				['http://localhost:8080/home/index', 'Home'], 
-				['http://localhost:8080/home/about', 'About'], 
+				['http://localhost:' . $_SERVER['SERVER_PORT'] . '/home/index', 'Home'], 
+				['http://localhost:' . $_SERVER['SERVER_PORT'] . '/home/about', 'About'], 
 				['https://github.com/ace411/Bingo-Framework', 'Documentation'], 
 				['https://github.com/ace411/Bingo-Framework', 'GitHub']
 			]
-		]);
+        ], $views->renderDefaults(true));
+		$views->render('Home/about.php', $options);
 	}
 }

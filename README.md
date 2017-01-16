@@ -1,15 +1,12 @@
-#Bingo Framework
-A simple MVC framework for PHP enthusiasts. Bingo, just like any other framework,
-simplifies the process of creating robust web applications.
+# Bingo-Framework
+MVC framework for PHP
 
-##Requirements
+##Proposed improvements for Version 1.0.1
 
-- PHP 5.4 or higher
+- More accurate path generation
 
-- MySQL 
+- Create Cache for Mustache templates
 
-##Documentation
-To fully acquaint yourself with the framework, check the Bingo [wiki](https://github.com/ace411/Bingo-Framework/wiki).
+- Modify the composer.json file
 
-##Dealing with problems
-Endeavor to create an issue on GitHub when the need arises or send an email to lochbm@gmail.com
+- Display configuration options
