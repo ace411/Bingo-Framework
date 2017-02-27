@@ -1,0 +1,2 @@
+//HTTP error log 
+//Toggle SHOW_ERRORS to false to trigger HTTP error logging

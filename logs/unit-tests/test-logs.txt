@@ -1,0 +1,6 @@
+HomeController
+ [x] Header presence
+ [x] Footer presence
+ [x] Index rendering
+ [x] About rendering
+
