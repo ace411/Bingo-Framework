@@ -1,7 +1,9 @@
 # Bingo Framework
  
 A simple MVC framework for PHP enthusiasts. Bingo, just like any other framework, simplifies the process of creating robust web applications.
- 
+
+[![Build Status](https://travis-ci.org/ace411/Bingo-Framework.svg?branch=master)](https://travis-ci.org/ace411/Bingo-Framework)
+
 ## Requirements
  
 - PHP 5.4 or higher
