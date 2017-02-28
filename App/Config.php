@@ -104,10 +104,6 @@ class Config
      *
      */
     
-    //const LUIS_APP_ID = '0f7e60ad-4450-4cb1-9a2e-bdc04a31e217';
-    
-    //const LUIS_SUB_KEY = 'c82c42c839c34e3589fd059e445464c7';
-    
     public static function getConstants()
     {
         $reflectionClass = new \ReflectionClass(__CLASS__);
