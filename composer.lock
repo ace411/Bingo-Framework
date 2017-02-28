@@ -4,48 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "244cb303fcef1baeefb6318f237b7ee6",
+    "content-hash": "27ed87a19a6ebddc2520d77ed3b2d8e9",
     "packages": [],
     "packages-dev": [
-        {
-            "name": "chemem/fauxton-client",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ace411/fauxton-client.git",
-                "reference": "2e16d5d7862e011ae699bc67ce03b7555ce0c56a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ace411/fauxton-client/zipball/2e16d5d7862e011ae699bc67ce03b7555ce0c56a",
-                "reference": "2e16d5d7862e011ae699bc67ce03b7555ce0c56a",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.4 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Chemem\\Fauxton\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Lochemem Bruno Michael",
-                    "email": "lochbm@gmail.com"
-                }
-            ],
-            "description": "A simple CouchDB interaction library.",
-            "time": "2017-02-21T11:09:41+00:00"
-        },
         {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
@@ -99,47 +60,6 @@
                 "instantiate"
             ],
             "time": "2015-06-14T21:17:01+00:00"
-        },
-        {
-            "name": "leafo/lessphp",
-            "version": "v0.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/leafo/lessphp.git",
-                "reference": "0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/leafo/lessphp/zipball/0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283",
-                "reference": "0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.4.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "lessc.inc.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Leaf Corcoran",
-                    "email": "leafot@gmail.com",
-                    "homepage": "http://leafo.net"
-                }
-            ],
-            "description": "lessphp is a compiler for LESS written in PHP.",
-            "homepage": "http://leafo.net/lessphp/",
-            "time": "2014-11-24T18:39:20+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -1496,9 +1416,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "chemem/fauxton-client": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

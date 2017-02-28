@@ -63,8 +63,19 @@ class Config
 	 */
 
 	const SHOW_ERRORS = true;
+    
+    /**
+     *
+     * Set the error type for the configuration
+     * Options are: json, text-html
+     *
+     * @var string ERROR_TYPE
+     *
+     */
+    
+    const ERROR_TYPE = 'text-html';
 
-	 /**
+    /**
 	 *
 	 * Dependency directory
 	 * @see composer.json for the name of the root dependency folder

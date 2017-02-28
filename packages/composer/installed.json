@@ -1073,49 +1073,6 @@
         ]
     },
     {
-        "name": "leafo/lessphp",
-        "version": "v0.5.0",
-        "version_normalized": "0.5.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/leafo/lessphp.git",
-            "reference": "0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/leafo/lessphp/zipball/0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283",
-            "reference": "0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283",
-            "shasum": ""
-        },
-        "time": "2014-11-24T18:39:20+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "0.4.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "lessc.inc.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT",
-            "GPL-3.0"
-        ],
-        "authors": [
-            {
-                "name": "Leaf Corcoran",
-                "email": "leafot@gmail.com",
-                "homepage": "http://leafo.net"
-            }
-        ],
-        "description": "lessphp is a compiler for LESS written in PHP.",
-        "homepage": "http://leafo.net/lessphp/"
-    },
-    {
         "name": "myclabs/deep-copy",
         "version": "1.6.0",
         "version_normalized": "1.6.0.0",
@@ -1501,46 +1458,5 @@
         "keywords": [
             "timer"
         ]
-    },
-    {
-        "name": "chemem/fauxton-client",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/ace411/fauxton-client.git",
-            "reference": "2e16d5d7862e011ae699bc67ce03b7555ce0c56a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/ace411/fauxton-client/zipball/2e16d5d7862e011ae699bc67ce03b7555ce0c56a",
-            "reference": "2e16d5d7862e011ae699bc67ce03b7555ce0c56a",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.4 || ^7.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "*"
-        },
-        "time": "2017-02-21T11:09:41+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Chemem\\Fauxton\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Lochemem Bruno Michael",
-                "email": "lochbm@gmail.com"
-            }
-        ],
-        "description": "A simple CouchDB interaction library."
     }
 ]

@@ -27,7 +27,6 @@ class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
         'C' => 
         array (
             'Core\\' => 5,
-            'Chemem\\Fauxton\\' => 15,
         ),
         'A' => 
         array (
@@ -61,10 +60,6 @@ class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
         'Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Core',
-        ),
-        'Chemem\\Fauxton\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/chemem/fauxton-client/src',
         ),
         'App\\' => 
         array (
@@ -550,11 +545,6 @@ class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
-        'lessc' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
-        'lessc_formatter_classic' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
-        'lessc_formatter_compressed' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
-        'lessc_formatter_lessjs' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
-        'lessc_parser' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

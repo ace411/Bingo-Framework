@@ -15,9 +15,11 @@
     "require-dev": {
         "mustache/mustache": "*",
         "phpunit/phpunit": "*",
-        "leafo/lessphp": "*",
-        "chemem/fauxton-client": "dev-master",
         "michelf/php-markdown": "*"
+    },
+    "suggest": {
+        "chemem/fauxton-client": "Helps with CouchDB NoSQL interactions",
+        "leafo/lessphp": "Compile LESS files to CSS without using third-party compilers"
     },
     "config": {
         "prepend-autoloader": false,

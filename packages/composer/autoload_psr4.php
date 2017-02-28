@@ -12,6 +12,5 @@ return array(
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Core\\' => array($baseDir . '/Core'),
-    'Chemem\\Fauxton\\' => array($vendorDir . '/chemem/fauxton-client/src'),
     'App\\' => array($baseDir . '/App'),
 );

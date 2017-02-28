@@ -46,14 +46,32 @@ class Error
 	public static function exceptionHandler($exception)
 	{
 		if (Config::SHOW_ERRORS === true) {
-			echo "
-				<h1>Fatal Error</h1>
-				<p>Uncaught exception: ".get_class($exception)."</p>
-				<p>Message: {$exception->getMessage()}</p>
-				<p>Stack Trace: {$exception->getTraceAsString()}</p>
-				<p>Thrown in: {$exception->getFile()}</p>
-				<p>Error line: {$exception->getLine()}</p>
-			";
+            switch (Config::ERROR_TYPE) {
+                case 'json':
+                    echo json_encode([
+                        'type' => 'Fatal Error',
+                        'uncaught_exception' => get_class($exception),
+                        'error_specifics' => [
+                            'stack_trace' => $exception->getTraceAsString(),
+                            'line_thrown_in' => $exception->getLine(),
+                            'file_thrown_in' => $exception->getFile(),
+                            'error_code' => !is_null($exception->getCode()) ? $exception->getCode() : 200
+                        ],
+                        'error_message' => $exception->getMessage()
+                    ]);
+                    break;
+                    
+                case 'text-html':
+                    echo "
+                        <h1>Fatal Error</h1>
+                        <p>Uncaught exception: ".get_class($exception)."</p>
+                        <p>Message: {$exception->getMessage()}</p>
+                        <p>Stack Trace: {$exception->getTraceAsString()}</p>
+                        <p>Thrown in: {$exception->getFile()}</p>
+                        <p>Error line: {$exception->getLine()}</p>
+                    ";
+                    break;
+            }
 		} else {
 			$log = str_replace('\\', '/', dirname(__DIR__)) . '/logs/http-errors/' . time() . '_http_log.txt';
 			ini_set('error_log', $log);
