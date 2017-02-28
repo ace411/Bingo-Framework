@@ -10,4 +10,4 @@ php:
     - nightly
  
 before-script:
-    -composer install
+    - composer install
