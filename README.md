@@ -6,7 +6,7 @@ A simple MVC framework for PHP enthusiasts. Bingo, just like any other framework
 
 ## Requirements
  
-- PHP 5.4 or higher
+- PHP 5.6 or higher
  
 - MySQL 
 
