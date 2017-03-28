@@ -15,7 +15,12 @@
     "require-dev": {
         "mustache/mustache": "*",
         "phpunit/phpunit": "*",
-        "michelf/php-markdown": "*"
+        "michelf/php-markdown": "*",
+        "kriswallsmith/assetic": "*",
+        "leafo/lessphp": "*",
+        "patchwork/jsqueeze": "*",
+        "natxet/CssMin": "*",
+        "pimple/pimple": "*"
     },
     "suggest": {
         "chemem/fauxton-client": "Helps with CouchDB NoSQL interactions",

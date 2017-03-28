@@ -13,7 +13,7 @@
 
 namespace Core;
 
-abstract class Controller 
+trait Controller
 {
 	/**
 	 *
@@ -23,10 +23,21 @@ abstract class Controller
 	 * @var array $route_params
 	 *
 	 */
-	
+
 	protected $route_params = [];
 
 	/**
+	 * Dependency container
+	 *
+	 * @access protected
+	 * @var array $container
+	 *
+	 */
+
+	protected $container;
+
+	/**
+	 * Controller constructor
 	 *
 	 * @param array $params An array of routing options
 	 *
@@ -35,10 +46,10 @@ abstract class Controller
 	public function __construct($params)
 	{
 		$this->route_params = $params;
+		$this->container = $params['container'];
 	}
 
 	/**
-	 *
 	 * Magic method to make before and after functions callable from other classes
 	 *
 	 * @method __call
@@ -60,7 +71,6 @@ abstract class Controller
 	}
 
 	/**
-	 *
 	 * Action filter before
 	 *
 	 * @access protected
@@ -74,7 +84,6 @@ abstract class Controller
 	}
 
 	/**
-	 *
 	 * Action filter after
 	 *
 	 * @access protected

@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
 {
+    public static $files = array (
+        'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/functions.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'p' => 
         array (
@@ -18,6 +22,11 @@ class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
         'S' => 
         array (
             'Symfony\\Component\\Yaml\\' => 23,
+            'Symfony\\Component\\Process\\' => 26,
+        ),
+        'P' => 
+        array (
+            'Patchwork\\' => 10,
         ),
         'D' => 
         array (
@@ -49,6 +58,14 @@ class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
         ),
+        'Symfony\\Component\\Process\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/process',
+        ),
+        'Patchwork\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/patchwork/jsqueeze/src',
+        ),
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
@@ -74,6 +91,10 @@ class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
             ),
+            'Pimple' => 
+            array (
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
         ),
         'M' => 
         array (
@@ -86,9 +107,74 @@ class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
                 0 => __DIR__ . '/..' . '/michelf/php-markdown',
             ),
         ),
+        'A' => 
+        array (
+            'Assetic' => 
+            array (
+                0 => __DIR__ . '/..' . '/kriswallsmith/assetic/src',
+            ),
+        ),
     );
 
     public static $classMap = array (
+        'CssAtCharsetParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtCharsetToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtFontFaceDeclarationToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtFontFaceEndToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtFontFaceParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtFontFaceStartToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtImportParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtImportToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtKeyframesEndToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtKeyframesParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtKeyframesRulesetDeclarationToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtKeyframesRulesetEndToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtKeyframesRulesetStartToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtKeyframesStartToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtMediaEndToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtMediaParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtMediaStartToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtPageDeclarationToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtPageEndToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtPageParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtPageStartToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtVariablesDeclarationToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtVariablesEndToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtVariablesParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssAtVariablesStartToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssCommentParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssCommentToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssCompressColorValuesMinifierPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssCompressExpressionValuesMinifierPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssCompressUnitValuesMinifierPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssConvertFontWeightMinifierPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssConvertHslColorsMinifierPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssConvertLevel3AtKeyframesMinifierFilter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssConvertLevel3PropertiesMinifierFilter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssConvertNamedColorsMinifierPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssConvertRgbColorsMinifierPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssError' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssExpressionParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssImportImportsMinifierFilter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssMin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssMinifier' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssNullToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssOtbsFormatter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssParser' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssRemoveCommentsMinifierFilter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssRemoveEmptyAtBlocksMinifierFilter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssRemoveEmptyRulesetsMinifierFilter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssRemoveLastDelarationSemiColonMinifierFilter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssRulesetDeclarationToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssRulesetEndToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssRulesetParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssRulesetStartToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssSortRulesetPropertiesMinifierFilter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssStringParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssUrlParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssVariablesMinifierFilter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssVariablesMinifierPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'CssWhitesmithsFormatter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
@@ -545,6 +631,21 @@ class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'aCssAtBlockEndToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'aCssAtBlockStartToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'aCssDeclarationToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'aCssFormatter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'aCssMinifierFilter' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'aCssMinifierPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'aCssParserPlugin' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'aCssRulesetEndToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'aCssRulesetStartToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'aCssToken' => __DIR__ . '/..' . '/natxet/CssMin/src/CssMin.php',
+        'lessc' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
+        'lessc_formatter_classic' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
+        'lessc_formatter_compressed' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
+        'lessc_formatter_lessjs' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
+        'lessc_parser' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

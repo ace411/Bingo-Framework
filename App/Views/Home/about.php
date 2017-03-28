@@ -2,7 +2,10 @@
 	<header class="top-container">
 		<nav class="top-container-nav">
 			<?php foreach($links as $link):?>
-				<a href="<?php echo htmlspecialchars($link[0]);?>" class="top-container-nav-a"><?php echo htmlspecialchars($link[1]);?></a>
+				<a href="<?php echo htmlspecialchars($link[0]);?>"
+				   class="top-container-nav-a">
+				   <?php echo htmlspecialchars($link[1]);?>
+			   	</a>
 			<?php endforeach;?>
 		</nav>
 	</header>

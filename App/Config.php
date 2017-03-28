@@ -18,7 +18,7 @@ class Config
 	 * Database user-name parameter
 	 *
 	 * @var string DB_USER
-	 * 
+	 *
 	 */
 
 	const DB_USER = 'root';
@@ -28,7 +28,7 @@ class Config
 	 * Database database host parameter
 	 *
 	 * @var string DB_HOST
-	 * 
+	 *
 	 */
 
 	const DB_HOST = 'localhost';
@@ -38,32 +38,32 @@ class Config
 	 * Database user-password parameter
 	 *
 	 * @var string DB_PASS
-	 * 
+	 *
 	 */
 
-	const DB_PASS = '';
+	const DB_PASS = 'intelligent1';
 
 	/**
 	 *
 	 * Database name parameter
 	 *
 	 * @var string DB_NAME
-	 * 
+	 *
 	 */
 
 	const DB_NAME = '';
-		
+
 	/**
 	 *
 	 * Show errors or convert them into readable logs
 	 * Set to false in production
 	 *
 	 * @var bool SHOW_ERRORS
-	 * 
+	 *
 	 */
 
 	const SHOW_ERRORS = true;
-    
+
     /**
      *
      * Set the error type for the configuration
@@ -72,7 +72,7 @@ class Config
      * @var string ERROR_TYPE
      *
      */
-    
+
     const ERROR_TYPE = 'text-html';
 
     /**
@@ -81,11 +81,11 @@ class Config
 	 * @see composer.json for the name of the root dependency folder
 	 *
 	 * @var string DEP_ROOT
-	 * 
+	 *
 	 */
 
 	const DEP_ROOT = 'packages';
-    
+
     /**
 	 *
 	 * Cache directory for
@@ -93,9 +93,19 @@ class Config
 	 * @var string CACHE_DIR
 	 *
 	 */
-    
+
     const CACHE_DIR = 'cache';
-    
+
+    /**
+     *
+     * Cache all the bundled assets
+     *
+     * @var bool ASSET_CACHE
+     *
+     */
+
+    const ASSET_CACHE = true;
+
     /**
      *
      * Get all the constants defined
@@ -103,10 +113,17 @@ class Config
      * @return array $reflectionClass->getConstants()
      *
      */
-    
+
+    const ASSET_USE_DEFAULT_PATHS = true;
+
     public static function getConstants()
     {
         $reflectionClass = new \ReflectionClass(__CLASS__);
         return $reflectionClass->getconstants();
+    }
+
+    public function getVars()
+    {
+        return get_defined_vars();
     }
 }

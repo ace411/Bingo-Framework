@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+    'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'Mustache' => array($vendorDir . '/mustache/mustache/src'),
     'Michelf' => array($vendorDir . '/michelf/php-markdown'),
+    'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
 );

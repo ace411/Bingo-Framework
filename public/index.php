@@ -3,8 +3,8 @@
 /**
  *
  * Public file for the Bingo Framework
- * Adding routes for the various controllers and views happens here 
- * 
+ * Adding routes for the various controllers and views happens here
+ *
  * @package The Bingo Framework
  * @author Lochemem Bruno Michael
  *
@@ -17,9 +17,17 @@ set_exception_handler('Core\Error::exceptionHandler');
 
 $router = new Core\Router();
 
-$router->addRoute("", ['controller' => 'Home', 'action' => 'index']);
+$router->inject('Assets', function ($c) {
+    return new \Core\Assets;
+});
 
-$router->addRoute("posts", ['controller' => 'Posts', 'action' => 'index']);
+$router->inject('BlogPosts', function ($c) {
+    return new \App\Models\Posts(new \App\Models\Twitter, \Core\Model::connectTo());
+});
+
+$router->inject('Views', function ($c) {
+    return new \Core\Views;
+});
 
 $router->addRoute('{controller}/{action}');
 
