@@ -69,8 +69,8 @@ class Home
 		$this->container['Views']->render('Home/about.php', $options);
 	}
 
-    public function getPostsAction()
+    public function manageAssetsAction()
     {
-        $this->container['BlogPosts']->getTwitterInfo();
+        print_r($this->container['Assets']->clearCache('scss'));
     }
 }

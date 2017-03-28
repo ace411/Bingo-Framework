@@ -28,6 +28,10 @@ class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
         array (
             'Patchwork\\' => 10,
         ),
+        'L' => 
+        array (
+            'Leafo\\ScssPhp\\' => 14,
+        ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
@@ -65,6 +69,10 @@ class ComposerStaticInitfa32a2b2325234b43fea6ac2561e6991
         'Patchwork\\' => 
         array (
             0 => __DIR__ . '/..' . '/patchwork/jsqueeze/src',
+        ),
+        'Leafo\\ScssPhp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/leafo/scssphp/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

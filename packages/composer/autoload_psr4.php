@@ -11,6 +11,7 @@ return array(
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Symfony\\Component\\Process\\' => array($vendorDir . '/symfony/process'),
     'Patchwork\\' => array($vendorDir . '/patchwork/jsqueeze/src'),
+    'Leafo\\ScssPhp\\' => array($vendorDir . '/leafo/scssphp/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Core\\' => array($baseDir . '/Core'),
