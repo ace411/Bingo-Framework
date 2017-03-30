@@ -17,15 +17,14 @@
         "phpunit/phpunit": "*",
         "michelf/php-markdown": "*",
         "kriswallsmith/assetic": "*",
-        "leafo/lessphp": "*",
-        "leafo/scssphp": "*",
-        "patchwork/jsqueeze": "*",
-        "natxet/CssMin": "*",
         "pimple/pimple": "*"
     },
     "suggest": {
         "chemem/fauxton-client": "Helps with CouchDB NoSQL interactions",
-        "leafo/lessphp": "Compile LESS files to CSS without using third-party compilers"
+        "leafo/lessphp": "Compile LESS files to CSS without using third-party compilers",
+        "leafo/scssphp": "Compile SCSS files to CSS without using third-party compilers",
+        "patchwork/jsqueeze": "Minify JS files",
+        "naxtet/CssMin": "Minify CSS files"
     },
     "scripts": {
         "bundle-all": "@php cli/bingo-cli.php -ball",
