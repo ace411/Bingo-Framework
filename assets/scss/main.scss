@@ -1,0 +1,13 @@
+$font_stack: Ubuntu;
+$primary_color: white;
+
+@mixin border_radius($radius) {
+    -webkit-border-radius: $radius;
+        -moz-border-radius: $radius;
+            border-radius: $radius;
+}
+
+body {
+    font: 100% $font_stack;
+    background: $primary_color;
+}

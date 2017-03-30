@@ -1,0 +1,10 @@
+@url: "/css/";
+@font: "Ubuntu";
+
+.container(@size) {
+    font-size: @size;
+}
+
+h1 {
+    .container(12px);
+}

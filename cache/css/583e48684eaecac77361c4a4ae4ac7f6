@@ -1,0 +1,10 @@
+body {
+    font-family: Ubuntu;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+}
+
+/**
+ * Other styles go here
+ */
