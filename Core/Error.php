@@ -14,14 +14,14 @@ namespace Core;
 use Core\Views;
 use App\Config;
 
-class Error 
+class Error
 {
 	/**
 	 *
 	 * @param int $level Error level for the runtime of the script
 	 * @param string $message Error message for the error triggered
 	 * @param string $file
-	 * @param string $line 
+	 * @param string $line
 	 *
 	 * @return void
 	 *
@@ -39,7 +39,7 @@ class Error
 	 * Performs an action based on the error condition specified
 	 * @see Bingo/Core/Config.php
 	 *
-	 * @param string $exception  
+	 * @param string $exception
 	 *
 	 */
 
@@ -60,7 +60,7 @@ class Error
                         'error_message' => $exception->getMessage()
                     ]);
                     break;
-                    
+
                 case 'text-html':
                     echo "
                         <h1>Fatal Error</h1>
@@ -98,7 +98,7 @@ class Error
 					];
 					echo $view->mustacheRender('error', $values);
 					break;
-				
+
 				case 500:
 					$view = new Views;
 					$values = [
@@ -113,18 +113,18 @@ class Error
 			}
 		}
 	}
-    
+
     /**
      *
      * Logs all console errors to the cli-errors directory
-     * 
+     *
      * @param array $exception The exception to be handled
      *
      */
-    
+
     public static function cliExceptionHandler($exception)
     {
-        $log = $cmdl->filePath('/logs/cli-errors/' . time() . '_cmd_log.txt');
+        $log = str_replace('\\', '/', dirname(__DIR__)) . '/logs/cli-errors/' . time() . '_cmd_log.txt';
         ini_set('error_log', $log);
         $message = "-------------------------------";
         $message .= "Uncaught exception: {get_class($exception)}\n";

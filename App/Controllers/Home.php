@@ -69,8 +69,4 @@ class Home
 		$this->container['Views']->render('Home/about.php', $options);
 	}
 
-    public function manageAssetsAction()
-    {
-        print_r($this->container['Assets']->clearCache('scss'));
-    }
 }

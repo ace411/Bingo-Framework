@@ -29,12 +29,8 @@ $router->inject('Views', function ($c) {
     return new \Core\Views;
 });
 
+$router->addRoute("", ['controller' => 'Home', 'action' => 'index']);
+
 $router->addRoute('{controller}/{action}');
-
-$router->addRoute('{controller}/{id:\d+}/{action}');
-
-$router->addRoute('{controller}/{id:\d+}/{name:\w+}/{action}');
-
-$router->addRoute('admin/{controller}/{action}', ['namespace' => 'Admin']);
 
 $router->dispatch($_SERVER['QUERY_STRING']);

@@ -71,7 +71,7 @@ class Views
 		if ($dir === null) {
 			$path = $view->createPath('App/Views/');
 		} else {
-			$path = $view->createPath($dir);			
+			$path = $view->createPath($dir);
 		}
 		return $path;
 	}
@@ -92,9 +92,9 @@ class Views
         if (!is_bool($scheme)) {
             throw new \Exception("{$http}: value does not exist");
         }
-        
-        $hostPath = $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'];        
-        
+
+        $hostPath = $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'];
+
         if ($scheme === true) {
             return 'http://'. $hostPath;
         } else {
@@ -120,19 +120,19 @@ class Views
             case 'font':
                 $url = $views->setPath($scheme) . '/fonts/';
                 break;
-                
+
             case 'style':
                 $url = $views->setPath($scheme) . '/styles/';
                 break;
-                
+
             case 'img':
                 $url = $views->setPath($scheme) . '/img/';
                 break;
-                
+
             case 'js':
                 $url = $views->setPath($scheme) . '/js/';
                 break;
-                
+
             default:
                 throw new \Exception("{$path} does not exist");
                 break;
@@ -147,16 +147,16 @@ class Views
 	 * @return array  Default client-side dependencies
 	 *
 	 */
-    
+
     public function renderMustacheDefaults($scheme, $title = null)
     {
         return [
             'title' => !is_null($title) ? $title : 'Bingo Framework',
-            'stylesheet' => $this->setPath($scheme) . '/styles/main.css',
+            'stylesheet' => $this->setPath($scheme) . '/css/main.css',
             'font' => $this->setPath($scheme) . '/fonts/Ubuntu.css'
         ];
     }
-    
+
     /**
 	 *
 	 * Use default view rendering dependencies(.js, .css, .php) for Raw PHP templates
@@ -164,13 +164,13 @@ class Views
 	 * @return array  Default client-side dependencies
 	 *
 	 */
-    
+
     public function renderRawDefaults($scheme, $title = null)
 	{
 		return array_merge([
             'header' => $this->createPath('App/Views/Raw/base_header.php'),
             'footer' => $this->createPath('App/Views/Raw/base_footer.php')
-        ], $this->renderMustacheDefaults($scheme, $title));        
+        ], $this->renderMustacheDefaults($scheme, $title));
 	}
 
 	/**
@@ -194,13 +194,13 @@ class Views
 					$data = filter_var($input, FILTER_SANITIZE_URL);
 				} else {
 					$data = htmlspecialchars(filter_var($input, FILTER_SANITIZE_STRING));
-				}			
+				}
 				break;
 
 			case is_int($input):
 				$data = filter_var($input, FILTER_VALIDATE_INT);
 				echo "Integer";
-				break;	
+				break;
 		}
 		return $data;
 	}
@@ -219,7 +219,7 @@ class Views
 	}
 
 	/**
-  	 * 
+  	 *
   	 * Render a Mustache template in the Mustache directory
   	 *
   	 * @param string $template
@@ -242,7 +242,7 @@ class Views
 		$tmp = $mustache->loadTemplate($template);
 		return $tmp->render($values);
 	}
-    
+
     /**
      *
      * Transform markdown into HTML
@@ -250,14 +250,14 @@ class Views
      * @param string $markdown The markdown to be converted
      * @param array $options An array with arbitrary options for the markdown-to-HTML conversion
      *
-     * @return $parser->transform($markdown) The HTML produced from the markdown provided 
+     * @return $parser->transform($markdown) The HTML produced from the markdown provided
      *
      */
-    
+
     public function transformMarkdown($markdown, $options = null)
     {
         $parser = new \Michelf\Markdown;
-        $parser->no_markup = false;        
+        $parser->no_markup = false;
         if (!is_null($options) && is_array($options)) {
             $match = function ($key, $array) {
                 if (array_key_exists($key, $array)) {

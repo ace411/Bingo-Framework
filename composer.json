@@ -27,6 +27,21 @@
         "chemem/fauxton-client": "Helps with CouchDB NoSQL interactions",
         "leafo/lessphp": "Compile LESS files to CSS without using third-party compilers"
     },
+    "scripts": {
+        "bundle-all": "@php cli/bingo-cli.php -ball",
+        "bundle-js": "@php cli/bingo-cli.php -bjs",
+        "bundle-less": "@php cli/bingo-cli.php -bless",
+        "bundle-css": "@php cli/bingo-cli.php -bcss",
+        "bundle-scss": "@php cli/bingo-cli.php -bscss",
+        "split-js": "@php cli/bingo-cli.php -spjs",
+        "split-css": "@php cli/bingo-cli.php -spcss",
+        "split-scss": "@php cli/bingo-cli.php -spscss",
+        "split-less": "@php cli/bingo-cli.php -spless",
+        "filter-js": "@php cli/bingo-cli.php -fjs",
+        "filter-less": "@php cli/bingo-cli.php -fless",
+        "filter-css": "@php cli/bingo-cli.php -fcss",
+        "filter-scss": "@php cli/bingo-cli.php -fscss"
+    },
     "config": {
         "prepend-autoloader": false,
         "vendor-dir": "packages"

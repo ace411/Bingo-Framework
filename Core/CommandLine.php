@@ -13,6 +13,7 @@ namespace Core;
 
 class CommandLine
 {
+    private $assetManager;
     /**
      *
      * Commands supported by the Bingo CLI
@@ -21,9 +22,19 @@ class CommandLine
      * @var array $commands
      *
      */
-    
-    private $commands = ['settings', 'install', 'update', 'self update', 'history', 'help', 'terminate', 'add'];
-    
+
+    private $commands = [
+        'settings',
+        'install',
+        'update',
+        'self update',
+        'history',
+        'help',
+        'terminate',
+        'add',
+        'bundle'
+    ];
+
     /**
      *
      * Descriptions to be bundled with the commands supported by the Bingo CLI
@@ -32,7 +43,7 @@ class CommandLine
      * @var array $descriptions
      *
      */
-    
+
     private $descriptions = [
         'View your configuration settings',
         'Install a new package via Composer',
@@ -41,9 +52,10 @@ class CommandLine
         'View a history of the Bingo shell commands you have entered',
         'View all the available Shell commands',
         'Close the Bingo Shell',
-        'Update the Composer autoloader after including a new Controller or Model'
+        'Update the Composer autoloader after including a new Controller or Model',
+        'Bundle all the assets in the assets directory'
     ];
-    
+
     /**
      *
      * Collection of pervasive phrases
@@ -52,26 +64,27 @@ class CommandLine
      * @var array $cliText
      *
      */
-    
+
     private $cliText = [
         'prefix' => '[ Bingo Shell:',
-        'title'  => 'Enter command ] > ', 
+        'title'  => 'Enter command ] > ',
         'thanks' => 'Thanks for using the shell!'
     ];
-    
+
     /**
      *
      * Constructor for the cli; checks if the bingo-cli script is running from the Command Line
-     * 
+     *
      */
-    
+
     public function __construct()
     {
         if (php_sapi_name() !== 'cli') {
             throw new \Exception('Cannot open the CLI in a browser');
         }
+        $this->assetManager = new \Core\Assets;
     }
-    
+
     /**
      *
      * Processes bound to commands
@@ -79,48 +92,48 @@ class CommandLine
      * @return array
      *
      */
-    
+
     private function getProcesses()
     {
         return [
             'install'     => 'composer install',
             'update'      => 'composer update',
             'self update' => 'composer self-update',
-            'add'         => 'composer dumpautoloader -o',  
+            'add'         => 'composer dumpautoloader -o',
             'launch'      => 'start'
         ];
     }
-    
+
     /**
      *
-     * Pipe process defaults for process interaction 
+     * Pipe process defaults for process interaction
      *
      * @return array
      *
      */
-    
+
     private function processDefaults()
     {
         return [
             0 => ['pipe', 'r'],
             1 => ['pipe', 'w'],
             2 => [
-                'pipe', 
+                'pipe',
                 fwrite(STDOUT, "\t Bingo is working...")
-            ] 
+            ]
         ];
     }
-    
+
     /**
      *
-     * Pipe process values with a file log stream  
+     * Pipe process values with a file log stream
      *
      * @param string $logName Name of the file in which the results of the process will be stored
      *
      * @return array
      *
      */
-    
+
     private function processLogValues($logName)
     {
         return [
@@ -129,7 +142,7 @@ class CommandLine
             2 => ['file', $this->filePath('/logs/cli-successes/' . time() . "{$logName}.txt"), 'w+']
         ];
     }
-    
+
     /**
      *
      * Get absolute path relative to Bingo directory
@@ -139,12 +152,12 @@ class CommandLine
      * @return string
      *
      */
-    
+
     public function filePath($path)
     {
         return str_replace(DIRECTORY_SEPARATOR, '/', dirname(__DIR__) . $path);
     }
-    
+
     /**
      *
      * Bundle commands and descriptions in an array
@@ -152,12 +165,12 @@ class CommandLine
      * @return array
      *
      */
-    
+
     public function bundleCommands()
     {
         return array_combine($this->commands, $this->descriptions);
     }
-    
+
     /**
      *
      * Interact with other processes
@@ -168,7 +181,7 @@ class CommandLine
      * @return bool
      *
      */
-    
+
     public function interactWithProcess($process, $arg = null)
     {
         $validateProcess = function ($proc, $procArr) {
@@ -176,10 +189,10 @@ class CommandLine
                 return $procArr[$proc];
             }
         };
-        
+
         $validProcess = $validateProcess($process, $this->getProcesses());
-        $processOptions = $this->processDefaults();        
-        
+        $processOptions = $this->processDefaults();
+
         if (!is_null($arg)) {
             switch ($process) {
                 case $this->getProcesses()['install']:
@@ -188,25 +201,25 @@ class CommandLine
                     break;
             }
         }
-        
+
         switch ($process) {
             case $this->getProcesses()['update']:
                 $processOptions = $this->processLogValues('_composer_update');
                 break;
-                
+
             case $this->getProcesses()['self update']:
                 $processOptions = $this->processLogValues('_composer_self_update');
                 break;
         }
-        
+
         $process = proc_open($validProcess, $processOptions, $pipes);
-        
+
         if (is_resource($process)) {
-            echo stream_get_contents($pipes[1]);            
+            echo stream_get_contents($pipes[1]);
             fclose($pipes[1]);
-            
+
             $returnValue = proc_close($process);
-            
+
             if ($returnValue === 0) {
                 return true;
             } else {
@@ -214,7 +227,25 @@ class CommandLine
             }
         }
     }
-    
+
+    public function bundleAll()
+    {
+        return array_combine($this->assetManager->getFileTypes(), [
+            $this->assetManager->cssFileBundler(),
+            $this->assetManager->lessFileBundler(),
+            $this->assetManager->scssFileBundler(),
+            $this->assetManager->jsFileBundler(),
+            $this->assetManager->pngFileModifier(),
+            $this->assetManager->jpegFileModifier(),
+            $this->assetManager->jpegFileModifier()
+        ]);
+    }
+
+    public function getAssetManager()
+    {
+        return $this->assetManager;
+    }
+
     /**
      *
      * Get the Configuration options set in the Config class
@@ -224,22 +255,22 @@ class CommandLine
      * @return array
      *
      */
-    
+
     public function getConfigConstants()
     {
         return \App\Config::getConstants();
     }
-    
+
     /**
      *
      * Get the contents of a file
      *
      * @param string $file The relative path of the file to be used
-     * 
+     *
      * @return string
      *
      */
-    
+
     public function openFile($file)
     {
         $file = $this->filePath($file);
@@ -249,22 +280,22 @@ class CommandLine
             return false;
         }
     }
-        
+
     /**
      *
      * Allow tab auto-completion of commands like in UNIX systems
      *
      * @param string $partial Partial command
-     * 
-     * @return array $this->commands 
+     *
+     * @return array $this->commands
      */
-    
+
     public static function tabComplete($partial)
     {
         $cmdl = new CommandLine;
         return $cmdl->commands;
     }
-    
+
     /**
      *
      * Get all the commands supported by the CLI
@@ -272,12 +303,12 @@ class CommandLine
      * @return array $this->commands
      *
      */
-            
+
     public function getAllCommands()
     {
-        return $this->commands;    
+        return $this->commands;
     }
-    
+
     /**
      *
      * Get the commonly used CLI prefixes
@@ -285,7 +316,7 @@ class CommandLine
      * @return array $this->cliText
      *
      */
-            
+
     public function getCliText()
     {
         return $this->cliText;

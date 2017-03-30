@@ -2,6 +2,7 @@
 
 /**
  * Sample model
+ * Requires DI to run
  *
  * @package Bingo Framework
  * @author Lochemem Bruno Michael
@@ -42,7 +43,7 @@ class Posts
      *
      */
 
-    public function __construct(Twitter $twitter, $sql)
+    public function __construct($twitter, $sql)
     {
         $this->twitter = $twitter;
         $this->sql = $sql;
