@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Users Controller
+ * Admin Controller
  *
  * @package Bingo Framework
  * @author Lochemem Bruno Michael
@@ -15,11 +15,6 @@ class Users
 	use \Core\Controller;
 
 	/**
-	 * Renders admin/users/index page
+	 * Add your code here
 	 */
-
-	public function indexAction()
-	{
-		echo 'Hello from the admin index page';
-	}
 }

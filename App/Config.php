@@ -41,7 +41,7 @@ class Config
 	 *
 	 */
 
-	const DB_PASS = 'intelligent1';
+	const DB_PASS = '';
 
 	/**
 	 *
@@ -114,16 +114,9 @@ class Config
      *
      */
 
-    const ASSET_USE_DEFAULT_PATHS = true;
-
     public static function getConstants()
     {
         $reflectionClass = new \ReflectionClass(__CLASS__);
         return $reflectionClass->getconstants();
-    }
-
-    public function getVars()
-    {
-        return get_defined_vars();
     }
 }

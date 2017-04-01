@@ -17,20 +17,6 @@ set_exception_handler('Core\Error::exceptionHandler');
 
 $router = new Core\Router();
 
-$router->inject('Assets', function ($c) {
-    return new \Core\Assets;
-});
-
-$router->inject('BlogPosts', function ($c) {
-    return new \App\Models\Posts(new \App\Models\Twitter, \Core\Model::connectTo());
-});
-
-$router->inject('Views', function ($c) {
-    return new \Core\Views;
-});
-
-$router->addRoute("", ['controller' => 'Home', 'action' => 'index']);
-
 $router->addRoute('{controller}/{action}');
 
 $router->dispatch($_SERVER['QUERY_STRING']);
