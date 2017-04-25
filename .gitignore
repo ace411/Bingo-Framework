@@ -1,0 +1,4 @@
+#Ignore all the files and folders in the packages directory
+#This is to make deployment a lot easier
+
+/packages/

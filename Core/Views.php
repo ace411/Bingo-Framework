@@ -234,6 +234,7 @@ class Views
 		$options = ['extension' => '.html'];
 		$mustache = new \Mustache_Engine([
 			'loader' => new \Mustache_Loader_FilesystemLoader(dirname(__DIR__) . '/App/Views/Mustache', $options),
+			'partials_loader' => new \Mustache_Loader_FilesystemLoader(dirname(__DIR__) . '/App/Views/Mustache/partials'),
 			'cache' => $this->createPath(Config::CACHE_DIR . '/mustache'),
             'escape' => function ($value){
 				return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');

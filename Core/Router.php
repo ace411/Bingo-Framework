@@ -132,10 +132,10 @@ class Router
 			$controller = $this->convertToStudlyCaps($controller);
 			$controller = $this->addNamespace() . "{$controller}";
 			if (class_exists($controller)) {
-                //instantiate the object of the class
                 if (isset($this->container)) {
                     $this->params['container'] = $this->container;
                 }
+                //instantiate the object of the class
                 $controller_object = new $controller($this->params);
                 //handle the action
 				$action = $this->params['action'];

@@ -43,7 +43,10 @@
     },
     "config": {
         "prepend-autoloader": false,
-        "vendor-dir": "packages"
+        "vendor-dir": "packages",
+        "sort-packages": "true",
+        "preferred-install": "dist",
+        "optimize-autoloader": true
     },
     "autoload": {
         "psr-4": {

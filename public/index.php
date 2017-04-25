@@ -17,6 +17,10 @@ set_exception_handler('Core\Error::exceptionHandler');
 
 $router = new Core\Router();
 
+$router->inject('Views', function ($c) {
+    return new \Core\Views;
+});
+
 $router->addRoute('{controller}/{action}');
 
 $router->dispatch($_SERVER['QUERY_STRING']);
