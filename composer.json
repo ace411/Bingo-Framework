@@ -24,7 +24,7 @@
         "leafo/lessphp": "Compile LESS files to CSS without using third-party compilers",
         "leafo/scssphp": "Compile SCSS files to CSS without using third-party compilers",
         "patchwork/jsqueeze": "Minify JS files",
-        "naxtet/CssMin": "Minify CSS files"
+        "natxet/CssMin": "Minify CSS files"
     },
     "scripts": {
         "bundle-all": "@php cli/bingo-cli.php -ball",
