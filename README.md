@@ -1,6 +1,6 @@
-# Bingo Framework
-
 ![Bingo-Framework-Logo](https://github.com/ace411/Bingo-Framework/blob/master/public/img/bingo-logo.png)
+
+# Bingo Framework
 
 [![Build Status](https://travis-ci.org/ace411/Bingo-Framework.svg?branch=master)](https://travis-ci.org/ace411/Bingo-Framework)
 
